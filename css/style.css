@@ -88,7 +88,7 @@ img {
   top: 0;
   left: 0;
   right: 0;
-  z-index: 1000;
+  z-index: 10001;
   background: var(--bg-primary);
   border-bottom: 1px solid var(--border-color);
   backdrop-filter: blur(12px);
@@ -629,6 +629,7 @@ img {
     width: 70%;
     max-width: 320px;
     height: 100vh;
+    height: 100dvh;
     flex-direction: column;
     background: var(--bg-primary);
     border-left: 1px solid var(--border-color);
@@ -636,7 +637,9 @@ img {
     gap: 0.5rem;
     transition: right 0.4s cubic-bezier(0.4, 0, 0.2, 1);
     box-shadow: -10px 0 30px rgba(0, 0, 0, 0.1);
-    z-index: 10000;
+    z-index: 10002;
+    overflow-y: auto;
+    -webkit-overflow-scrolling: touch;
   }
 
   .nav-menu.active {
@@ -645,12 +648,16 @@ img {
 
   .hamburger {
     display: block;
+    z-index: 10003;
   }
 
   .nav-link {
     font-size: 0.9rem;
     padding: 0.8rem 0;
     width: 100%;
+    min-height: 44px;
+    display: flex;
+    align-items: center;
   }
 
   .nav-link::after {
@@ -670,6 +677,8 @@ img {
 
   .header-container {
     padding: 5.5rem 1.5rem 2rem;
+    min-height: calc(100vh - 60px);
+    min-height: calc(100dvh - 60px);
   }
 
   .content-text h2 {
@@ -688,18 +697,94 @@ img {
   .project-container {
     padding: 3rem 1.5rem;
   }
+
+  .card {
+    border-radius: 12px;
+  }
+
+  .project-info {
+    padding: 1rem 1.2rem;
+  }
+
+  .project-link a {
+    width: 40px;
+    height: 40px;
+  }
+
+  #footer .container {
+    padding: 0 1.5rem;
+  }
+
+  .social a {
+    width: 44px;
+    height: 44px;
+  }
 }
 
 @media (max-width: 480px) {
+  .header-container {
+    padding: 5rem 1rem 1.5rem;
+  }
+
   .content-text h2 {
-    font-size: 1.7rem;
+    font-size: 1.6rem;
+    letter-spacing: -0.5px;
   }
 
   .content-text p {
-    font-size: 0.9rem;
+    font-size: 0.88rem;
+    margin: 1rem auto;
+  }
+
+  .profile-image {
+    width: 100px;
+    height: 100px;
+  }
+
+  .project-container {
+    padding: 2.5rem 1rem;
+  }
+
+  .project-container > .content-text h2 {
+    font-size: 1.5rem;
   }
 
   #footer a.email-link {
-    font-size: 0.95rem;
+    font-size: 0.9rem;
+    word-break: break-all;
+  }
+
+  #footer {
+    padding: 2rem 0;
+  }
+
+  .btn {
+    padding: 0.75rem 1.8rem;
+    font-size: 0.75rem;
+  }
+}
+
+@media (max-width: 360px) {
+  .navbar .container {
+    padding: 0.8rem 1rem;
+  }
+
+  #logo a {
+    font-size: 1.2rem;
+  }
+
+  #logo .logo-icon {
+    width: 30px;
+    height: 30px;
+    font-size: 0.9rem;
+  }
+
+  .content-text h2 {
+    font-size: 1.4rem;
+  }
+
+  .profile-image {
+    width: 90px;
+    height: 90px;
   }
 }

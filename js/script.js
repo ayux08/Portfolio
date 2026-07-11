@@ -13,6 +13,7 @@ function mobileMenu() {
   hamburger.classList.toggle("active");
   navMenu.classList.toggle("active");
   navOverlay.classList.toggle("active");
+  document.body.classList.toggle("menu-open");
   document.body.style.overflow = hamburger.classList.contains("active")
     ? "hidden"
     : "";
@@ -26,6 +27,7 @@ function closeMenu() {
   hamburger.classList.remove("active");
   navMenu.classList.remove("active");
   navOverlay.classList.remove("active");
+  document.body.classList.remove("menu-open");
   document.body.style.overflow = "";
 }
 
